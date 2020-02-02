@@ -70,6 +70,8 @@ function resetFields() {
 function deleteAssignment(e) {
   if (e.target.tagName == "A") {
     e.target.parentNode.remove();
+    //Remove item from LS
+    deleteFromLS(e.target.parentElement.firstElementChild.innerHTML);
   }
 }
 
@@ -117,6 +119,7 @@ function getItemsFromLS() {
     }
   });
 }
+
 // Add Task To LS
 function addAssignmentToLS(assignment) {
   let assignments;
@@ -130,6 +133,29 @@ function addAssignmentToLS(assignment) {
 
   assignments.push(assignment);
   localStorage.setItem("assignments", JSON.stringify(assignments));
+}
+
+// Delete Single Task from LS
+function deleteFromLS(assignmentName) {
+  let assignments;
+
+  // Check for local storage existance
+  if (localStorage.getItem("assignments") === null) {
+    assignments = [];
+  } else {
+    assignments = JSON.parse(localStorage.getItem("assignments"));
+  }
+
+  // Pull the assignments array from LS, loop through each item and pass in index
+  assignments.forEach(function(assignment, index) {
+    // if the assignment name clicked to be removed, matches item being looped, remove it from array using the index
+    if (assignmentName === assignment.title) {
+      assignments.splice(index, 1);
+    }
+
+    // set the new LS storage array
+    localStorage.setItem("assignments", JSON.stringify(assignments));
+  });
 }
 
 // Clear All LS
