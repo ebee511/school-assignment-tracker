@@ -99,10 +99,22 @@ function getItemsFromLS() {
     assignments = JSON.parse(localStorage.getItem("assignments"));
   }
 
-  console.log(assignments);
-
   assignments.forEach(function(assignment) {
-    console.log(assignment);
+    let rowUI = `
+      <li>
+        <p>${assignment.title}</p>
+        <p>${assignment.grade}/${assignment.value}</p>
+        <a>x</a>
+      </li>
+      `;
+
+    if (assignment.subject === "eng") {
+      engULUI.innerHTML += rowUI;
+    } else if (assignment.subject === "sci") {
+      sciULUI.innerHTML += rowUI;
+    } else {
+      mathULUI.innerHTML += rowUI;
+    }
   });
 }
 // Add Task To LS
