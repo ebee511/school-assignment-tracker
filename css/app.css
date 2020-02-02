@@ -1,0 +1,72 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+  font-family: "Quicksand", sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  margin: 0 auto;
+}
+
+.row {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card {
+  border: 1px solid black;
+  margin: 20px auto;
+  max-width: 80%;
+}
+
+h1 {
+  font-size: 28px;
+  text-align: center;
+}
+
+.input-field {
+  margin-bottom: 10px;
+}
+
+#assignment-form {
+  margin: auto;
+  text-align: center;
+}
+
+input[type="submit"],
+input[type="button"] {
+  margin: auto;
+  display: block;
+}
+
+hr {
+  width: 80%;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+a {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+a:hover {
+  color: orange;
+  font-weight: 700;
+}

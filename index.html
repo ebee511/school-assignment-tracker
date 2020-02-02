@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Compiled and minified CSS -->
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Quicksand|Raleway&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/app.css" />
+    <title>School Assignment Tracker</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div id="main" class="card">
+          <div class="card-content">
+            <h1 class="card-title">School Assignments List</h1>
+            <div class="row">
+              <form id="assignment-form">
+                <!-- Input for Assignment Name field -->
+                <div class="input-field col s12">
+                  <label for="assignmentName">Assignment</label>
+                  <input
+                    type="text"
+                    name="assignmentName"
+                    id="assignmentName"
+                  />
+                </div>
+                <!-- Input for Subject field -->
+                <div class="input-field col s12">
+                  <label for="subject">Subject</label>
+                  <select name="subject" id="subject">
+                    <option value=""></option>
+                    <option value="eng">English</option>
+                    <option value="math">Math</option>
+                    <option value="sci">Science</option>
+                  </select>
+                </div>
+                <!-- Input for Assignment Grade -->
+                <div class="input-field col s12">
+                  <label for="assignment-grade">Assignment Grade</label>
+                  <input
+                    type="number"
+                    name="assignment-grade"
+                    id="assignment-grade"
+                  />
+                </div>
+                <!-- Input for Assignment Value -->
+                <div class="input-field col s12">
+                  <label for="assignment-value">Assignment Value</label>
+                  <input
+                    type="number"
+                    name="assignment-value"
+                    id="assignment-value"
+                  />
+                </div>
+                <!-- Input Submit -->
+                <input type="submit" value="Submit" id="submitBtn" />
+              </form>
+              <!-- Page Line Break -->
+              <hr />
+              <!-- Added Assignments -->
+              <div id="added-assignments">
+                <div id="english">
+                  <h3 class="subject-header">English</h3>
+                  <div class="row">
+                    <ul id="eng-ul"></ul>
+                  </div>
+                </div>
+                <div id="math">
+                  <h3 class="subject-header">Math</h3>
+                  <div class="row">
+                    <ul id="math-ul"></ul>
+                  </div>
+                </div>
+                <div id="science">
+                  <h3 class="subject-header">Science</h3>
+                  <div class="row">
+                    <ul id="sci-ul"></ul>
+                  </div>
+                </div>
+                <input type="button" value="Clear All" id="deleteAll" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/app.js"></script>
+  </body>
+</html>
