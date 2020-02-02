@@ -32,22 +32,6 @@ function addAssignment() {
   const hwGrade = assignmentGrade.value;
   const hwValue = assignmentValue.value;
 
-  let rowUI = `
-  <li>
-    <p>${hwTitle}</p>
-    <p>${hwGrade}/${hwValue}</p>
-    <a>x</a>
-  </li>
-  `;
-
-  if (hwSub === "eng") {
-    engULUI.innerHTML += rowUI;
-  } else if (hwSub === "sci") {
-    sciULUI.innerHTML += rowUI;
-  } else {
-    mathULUI.innerHTML += rowUI;
-  }
-
   const assignment = {
     title: hwTitle,
     subject: hwSub,
@@ -55,7 +39,28 @@ function addAssignment() {
     value: hwValue
   };
 
+  createUI(assignment);
+
   addAssignmentToLS(assignment);
+}
+
+// Create UI
+function createUI(obj) {
+  let rowUI = `
+  <li>
+    <p>${obj.title}</p>
+    <p>${obj.grade}/${obj.value}</p>
+    <a>x</a>
+  </li>
+  `;
+
+  if (obj.subject === "eng") {
+    engULUI.innerHTML += rowUI;
+  } else if (obj.subject === "sci") {
+    sciULUI.innerHTML += rowUI;
+  } else {
+    mathULUI.innerHTML += rowUI;
+  }
 }
 
 // Reset Input Fields function
@@ -102,21 +107,7 @@ function getItemsFromLS() {
   }
 
   assignments.forEach(function(assignment) {
-    let rowUI = `
-      <li>
-        <p>${assignment.title}</p>
-        <p>${assignment.grade}/${assignment.value}</p>
-        <a>x</a>
-      </li>
-      `;
-
-    if (assignment.subject === "eng") {
-      engULUI.innerHTML += rowUI;
-    } else if (assignment.subject === "sci") {
-      sciULUI.innerHTML += rowUI;
-    } else {
-      mathULUI.innerHTML += rowUI;
-    }
+    createUI(assignment);
   });
 }
 
